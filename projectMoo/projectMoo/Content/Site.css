@@ -8,8 +8,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-
-      background:url('http://us-kick9.s3.amazonaws.com/soulhunters/homepic/63523cc4bcc4d53cb28a4ba6ab2e2e30.jpg') center center no-repeat;
+    background:url('http://us-kick9.s3.amazonaws.com/soulhunters/homepic/63523cc4bcc4d53cb28a4ba6ab2e2e30.jpg') center center no-repeat;
     min-height:100%;
 	background-size:cover;
 }
@@ -76,7 +75,15 @@ textarea {
 
 /* Navigation Links */
 
+a#nav-li {
+    margin: 5px;
+}
+
 #nav-li:link {
+    color: black;
+}
+
+#nav-li:visited {
     color: black;
 }
 
@@ -89,6 +96,14 @@ textarea {
 }
 
 /* Logo */
+/*
+#logo-nav:link {
+    color: cornflowerblue;
+}
+
+#logo-nav:visited {
+    color: cornflowerblue;
+}
 
 #logo-nav:hover {
     color: cornflowerblue;
@@ -97,10 +112,18 @@ textarea {
 #logo-nav:active {
     color: cornflowerblue;
 }
-
+*/
 /* Login Links */
 
+a#registerLink {
+    margin: 5px;
+}
+
 #registerLink:link {
+    color: black;
+}
+
+#registerLink:visited {
     color: black;
 }
 
@@ -112,7 +135,15 @@ textarea {
     color: cornflowerblue;
 }
 
+a#loginLink {
+    margin: 5px;
+}
+
 #loginLink:link {
+    color: black;
+}
+
+#loginLink:visited {
     color: black;
 }
 
@@ -128,4 +159,15 @@ textarea {
 
 #main-nav {
     border-color: cornflowerblue;
+    height: 60px;
+}
+
+/* Logo */
+
+img#logo-nav {
+    width: 50px;
+    height: 50px;
+    text-indent: -9999px; /* hides the link text */
+    display: block;
+    margin: 5px;
 }
