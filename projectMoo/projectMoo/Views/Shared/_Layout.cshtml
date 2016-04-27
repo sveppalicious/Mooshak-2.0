@@ -17,13 +17,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Mooshak 2.0", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", id = "logo-nav" })
+                @Html.ActionLink("Mooshak v2.0", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", id = "logo-nav" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav li-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { id = "nav-li"})</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { id = "nav-li"})</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { id = "nav-li"})</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -33,7 +31,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mooshak 2.0 all rights reserved </p>
+            <p>&copy; @DateTime.Now.Year - Mooshak v2.0 all rights reserved </p>
         </footer>
     </div>
 
