@@ -73,3 +73,59 @@ textarea {
   background-image: none;
   background-repeat: no-repeat;
  }
+
+/* Navigation Links */
+
+#nav-li:link {
+    color: black;
+}
+
+#nav-li:hover {
+    color: cornflowerblue;
+}
+
+#nav-li:active {
+    color: cornflowerblue;
+}
+
+/* Logo */
+
+#logo-nav:hover {
+    color: cornflowerblue;
+}
+
+#logo-nav:active {
+    color: cornflowerblue;
+}
+
+/* Login Links */
+
+#registerLink:link {
+    color: black;
+}
+
+#registerLink:hover {
+    color: cornflowerblue;
+}
+
+#registerLink:active {
+    color: cornflowerblue;
+}
+
+#loginLink:link {
+    color: black;
+}
+
+#loginLink:hover {
+    color: cornflowerblue;
+}
+
+#loginLink:active {
+    color: cornflowerblue;
+}
+
+/* Navigation bar */
+
+#main-nav {
+    border-color: cornflowerblue;
+}
