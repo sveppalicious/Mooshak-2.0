@@ -1,0 +1,70 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.form-horizontal{
+
+    background-color:white;
+   
+    margin-top: 75px;
+    padding: 20px;
+    border:0.25px solid;
+    border-color: cornflowerblue;
+    border-radius: 4px;
+    width:700px;
+   
+}
+
+
+#login-btn, #register-btn{
+
+    background-color:cornflowerblue;
+    width: 100%;
+    height:50px;
+    font-size:20px;
+    color:white;
+}
+
+#orId{
+    text-align:left;
+    font-size:16px;
+    margin-top:20px;
+}
+
+.navbar-inverse { 
+    background-color:white;
+
+}
+
+.navbar-brand { color: cornflowerblue; }
+.navbar-brand:visited { color: cornflowerblue; }
+.navbar-brand:hover { color: cornflowerblue; }
+.navbar-brand-color { color: cornflowerblue; }
+
+
+.navbar-default {
+  background-color:teal;
+  background-image: none;
+  background-repeat: no-repeat;
+ }
