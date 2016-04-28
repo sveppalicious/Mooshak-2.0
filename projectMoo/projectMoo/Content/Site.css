@@ -138,26 +138,6 @@ a#nav-li {
 */
 /* Login Links */
 
-a#registerLink {
-    margin: 5px;
-}
-
-#registerLink:link {
-    color: black;
-}
-
-#registerLink:visited {
-    color: black;
-}
-
-#registerLink:hover {
-    color: cornflowerblue;
-}
-
-#registerLink:active {
-    color: cornflowerblue;
-}
-
 a#loginLink {
     margin: 5px;
 }
