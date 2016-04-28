@@ -1,16 +1,39 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-  
+    background-color: cornflowerblue;
+    background: url(../Images/code-wallpaper-4.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100%;
 }
+
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
+    /*padding-left: 15px;
+    margin-top: 10px;
     padding-right: 15px;
     background:url('http://us-kick9.s3.amazonaws.com/soulhunters/homepic/63523cc4bcc4d53cb28a4ba6ab2e2e30.jpg') center center no-repeat;
     min-height:100%;
 	background-size:cover;
+    background: url(../Images/code-wallpaper-4.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    */
+}
+
+html { 
+  background: url(images/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 

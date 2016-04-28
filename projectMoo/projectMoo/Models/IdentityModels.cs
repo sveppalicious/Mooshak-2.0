@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using projectMoo.Models.Entities;
 
 namespace projectMoo.Models
 {
@@ -20,6 +21,9 @@ namespace projectMoo.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Assignment> Assignments { get; set; }
+        public DbSet<AssignmentMilestone> Milestones { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
