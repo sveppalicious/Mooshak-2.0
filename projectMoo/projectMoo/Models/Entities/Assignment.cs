@@ -10,5 +10,6 @@ namespace projectMoo.Models.Entities
         public int ID { get; set; }
         public int CourseID { get; set; }
         public string Title { get; set; }
+        public double Grade { get; set; }
     }
 }

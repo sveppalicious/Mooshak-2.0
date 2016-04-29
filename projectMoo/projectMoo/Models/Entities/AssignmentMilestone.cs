@@ -9,8 +9,10 @@ namespace projectMoo.Models.Entities
     {
         public int ID { get; set; }
         public int AssignmentID { get; set; }
+        public int UserID { get; set; }
         public string Title { get; set; }
-        
+        public double Grade { get; set; }
+
         /// <summary>
         /// Determines how much this milestone weights in the assignment.
         /// Example: if this milestone is 15% of the grade of the assignment
@@ -18,4 +20,4 @@ namespace projectMoo.Models.Entities
         /// </summary>
         public int Percentage { get; set; }
     }
-}
+}  
