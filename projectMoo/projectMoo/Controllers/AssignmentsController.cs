@@ -14,6 +14,7 @@ namespace projectMoo.Controllers
         // GET: Assignments
         public ActionResult Index()
         {
+
             return View();
         }
 

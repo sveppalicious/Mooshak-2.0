@@ -24,13 +24,15 @@ namespace projectMoo.Services
 
         public AssignmentViewModel GetAssignmentByID(int AssignmentID)
         {
+            System.Diagnostics.Debug.WriteLine("GetAssignment");
+
             var Assignment = _db.Assignments.SingleOrDefault(x => x.ID == AssignmentID);
 
             if (Assignment == null)
             {
-                // Error
+                System.Diagnostics.Debug.WriteLine("Nothing");
             }
-
+            /*
             var milestones = _db.Milestones
                 .Where(x => x.AssignmentID == AssignmentID)
                 .Select(x => new AssignmentMilestoneViewModel
@@ -38,13 +40,13 @@ namespace projectMoo.Services
                     Title = x.Title
                 })
                 .ToList();
-
+            */
             var viewModel = new AssignmentViewModel
             {
-                Title = Assignment.Title,
-                Milestones = milestones
+                Title = Assignment.Title
+                //Milestones = milestones
             };
-
+            
             return viewModel;
         }
     }
