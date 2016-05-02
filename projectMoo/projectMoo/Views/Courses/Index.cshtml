@@ -1,7 +1,18 @@
-﻿
+﻿@model IEnumerable<projectMoo.Models.ViewModels.CourseViewModel>
+
 @{
     ViewBag.Title = "Courses";
 }
 
 <h2>Courses</h2>
 
+
+<div class="row">
+    @foreach (var course in Model)
+    {
+        <div class="col-md-3">
+            <h2>@course.Title</h2>
+            <p>@course.Description</p>
+        </div>
+    }
+</div>

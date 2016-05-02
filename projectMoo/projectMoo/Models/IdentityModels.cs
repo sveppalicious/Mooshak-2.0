@@ -24,6 +24,8 @@ namespace projectMoo.Models
         public DbSet<Assignment>            Assignments             { get; set; }
         public DbSet<AssignmentMilestone>   AssignmentMilestones    { get; set; }
         public DbSet<Course>                Courses                 { get; set; }
+        public DbSet<UserCourse>            UserCourses             { get; set; }
+
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
