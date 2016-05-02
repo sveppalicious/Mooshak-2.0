@@ -11,6 +11,7 @@ namespace projectMoo.Controllers
     {
         private AssignmentsService _service = new AssignmentsService();
 
+        [Authorize]
         // GET: Assignments
         public ActionResult Index()
         {
