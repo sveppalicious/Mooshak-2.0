@@ -102,19 +102,19 @@ a#nav-li {
     margin: 5px;
 }
 
-#nav-li:link {
+a#nav-li:link {
     color: black;
 }
 
-#nav-li:visited {
+a#nav-li:visited {
     color: black;
 }
 
-#nav-li:hover {
+a#nav-li:hover {
     color: cornflowerblue;
 }
 
-#nav-li:active {
+a#nav-li:active {
     color: cornflowerblue;
 }
 

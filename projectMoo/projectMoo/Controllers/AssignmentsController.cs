@@ -14,14 +14,8 @@ namespace projectMoo.Controllers
         // GET: Assignments
         public ActionResult Index()
         {
-
-            return View();
-        }
-
-        public ActionResult Details(int ID)
-        {
-            var ViewModel = _service.GetAssignmentByID(ID);
-
+            System.Diagnostics.Debug.WriteLine("Index Assign");
+            var ViewModel = _service.GetAssignmentsInCourse(1);
             return View(ViewModel);
         }
     }
