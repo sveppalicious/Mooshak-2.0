@@ -10,12 +10,12 @@ namespace projectMoo.Controllers
 {
     public class HomeController : Controller
     {
-        private AssignmentsService _service = new AssignmentsService();
+        private AssignmentsService _assignmentService = new AssignmentsService();
 
         [Authorize]
         public ActionResult Index()
         {
-            var model = _service.GetAssignmentForUser(User.Identity.GetUserId());
+            var model = _assignmentService.GetAssignmentForUser(User.Identity.GetUserId());
             if(model == null)
             {
                 System.Diagnostics.Debug.WriteLine("Index model is null");

@@ -167,3 +167,7 @@ img#logo-nav {
     display: block;
     margin: 5px;
 }
+
+img#profile-picture {
+    margin-left: 50px;
+}
