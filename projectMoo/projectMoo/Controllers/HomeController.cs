@@ -1,4 +1,5 @@
-﻿using projectMoo.Services;
+﻿using Microsoft.AspNet.Identity;
+using projectMoo.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,12 @@ namespace projectMoo.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var model = _service.GetAssignmentByID(1);
-            System.Diagnostics.Debug.WriteLine("The index");
-            System.Diagnostics.Debug.WriteLine(model.Title);
-
-            return View();
+            var model = _service.GetAssignmentForUser(User.Identity.GetUserId());
+            if(model == null)
+            {
+                System.Diagnostics.Debug.WriteLine("Index model is null");
+            }
+            return View(model);
         }
     }
 }

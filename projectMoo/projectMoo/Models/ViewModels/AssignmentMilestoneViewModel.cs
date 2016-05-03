@@ -8,7 +8,7 @@ namespace projectMoo.Models.ViewModels
     public class AssignmentMilestoneViewModel
     {
         public string Title { get; set; }
-        public double Grade { get; set; }
+        public decimal Grade { get; set; }
         public string Description { get; set; }
         /// <summary>
         /// Determines how much this milestone weights in the assignment.

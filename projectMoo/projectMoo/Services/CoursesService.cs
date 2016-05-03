@@ -50,5 +50,26 @@ namespace projectMoo.Services
 
             return coursesViewModel;
         }
+
+        public CourseViewModel getCourseByID(int ID)
+        {
+            var course = (from c in _db.Courses
+                          where c.ID == ID
+                          select c).SingleOrDefault();
+
+            if (course == null)
+            {
+                System.Diagnostics.Debug.WriteLine("No course found with that ID");
+            }
+
+            CourseViewModel returnCourse = new CourseViewModel
+            {
+                Title = course.Title,
+                Description = course.Description,
+                Assignments = new List<Assignment>()
+            };
+
+            return returnCourse;
+        }
     }
 }

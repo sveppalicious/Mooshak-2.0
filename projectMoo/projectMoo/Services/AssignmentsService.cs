@@ -11,10 +11,42 @@ namespace projectMoo.Services
     public class AssignmentsService
     {
         private ApplicationDbContext _db;
+        private CoursesService _courseService;
+        private MilestoneService _milestoneService;
 
         public AssignmentsService()
         {
             _db = new ApplicationDbContext();
+            _courseService = new CoursesService();
+            _milestoneService = new MilestoneService();
+        }
+
+        public List<AssignmentViewModel> GetAssignmentForUser(string userID)
+        {
+            List<AssignmentViewModel> returnList = new List<AssignmentViewModel>();
+
+            var links = (from courseRelation in _db.UserCourses
+                          where courseRelation.UserID == userID
+                          select courseRelation).ToList();
+
+            List<Course> courses = new List<Course>();
+
+            foreach (UserCourse c in links)
+            {
+                Course userCourse = (from storedCourse in _db.Courses
+                                     where storedCourse.ID == c.CourseID
+                                     select storedCourse).SingleOrDefault();
+
+                courses.Add(userCourse);
+            }
+
+            foreach (Course item in courses)
+            {
+                System.Diagnostics.Debug.WriteLine(item.Title);
+                returnList.AddRange(GetAssignmentsInCourse(item.ID));
+            }
+
+            return returnList;
         }
 
         public List<AssignmentViewModel> GetAssignmentsInCourse(int CourseID)
@@ -31,23 +63,17 @@ namespace projectMoo.Services
             }
 
             List<AssignmentViewModel> listAssignments = new List<AssignmentViewModel>();
-            List<AssignmentMilestoneViewModel> listMilestones = new List<AssignmentMilestoneViewModel>();
-
-            listMilestones.Add(new AssignmentMilestoneViewModel
-            {
-                Title = "fokk off",
-                Description = "shut up",
-                Grade = 0,
-                Percentage = 100
-            });
             
             foreach (var assign in Assignments)
             {
+                System.Diagnostics.Debug.WriteLine(assign.CourseID);
+
                 listAssignments.Add(new AssignmentViewModel
                 {
                     Title = assign.Title,
+                    CourseTitle = _courseService.getCourseByID(assign.CourseID).Title.ToString(),
                     Description = assign.Description,
-                    Milestones = listMilestones
+                    Milestones = _milestoneService.getMilestonesForAssignment(assign.ID)
                 });
             }
 
