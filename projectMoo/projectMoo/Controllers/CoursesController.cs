@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using projectMoo.Models.ViewModels;
 using projectMoo.Services;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace projectMoo.Controllers
         {
             string currentUserId = User.Identity.GetUserId();
             System.Diagnostics.Debug.WriteLine("user id " + currentUserId);
-            var ViewModel = _service.getCoursesForUser(currentUserId);
+            List<CourseViewModel> ViewModel = _service.getCoursesForUser(currentUserId);
             return View(ViewModel);
         }
     }
