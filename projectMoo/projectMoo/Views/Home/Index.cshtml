@@ -1,4 +1,4 @@
-﻿@model IEnumerable<projectMoo.Models.ViewModels.AssignmentViewModel>
+﻿@model projectMoo.Models.ViewModels.UserViewModel
 
 @{
     ViewBag.Title = "Home";
@@ -14,23 +14,17 @@
             <!--left col-->
 
             <ul class="list-group">
-                <li class="list-group-item text-muted">Profile</li>
+                <li class="list-group-item text-muted text-center">Profile</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Name</strong></span>@Model.Name</li> 
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span>@User.Identity.Name</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li>
             </ul>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-                <div class="panel-body"><a href="http://bootply.com">bootply.com</a></div>
-            </div>
-
-
             <ul class="list-group">
-                <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+                <li class="list-group-item text-muted text-center">Courses<i class="fa fa-dashboard fa-1x"></i></li>
+                @foreach (var item in Model.Courses)
+                {
+                    <li class="list-group-item text-center"><strong>@item.Title</strong></li>
+                }
             </ul>
 
             <div class="panel panel-default">
@@ -62,7 +56,11 @@
                                 </tr>
                             </thead>
                             <tbody id="items">
+<<<<<<< HEAD
                                 @foreach(var item in Model)
+=======
+                                @foreach(var item in Model.Assignments)
+>>>>>>> dev
                                 {
                                     <tr>
                                         <td>@item.Title</td>
@@ -177,8 +175,12 @@
 
     </div><!--/col-9-->
 </div><!--/row-->
+<<<<<<< HEAD
 
 @section scripts
+=======
+@section scripts 
+>>>>>>> dev
 {
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script type="text/javascript">
@@ -294,4 +296,8 @@
 
         $('#items').pageMe({ pagerSelector: '#myPager', childSelector: 'tr', showPrevNext: true, hidePageNumbers: false, perPage: 5 });
     </script>
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dev
