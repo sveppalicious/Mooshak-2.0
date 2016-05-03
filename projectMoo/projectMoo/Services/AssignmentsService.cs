@@ -25,9 +25,9 @@ namespace projectMoo.Services
         {
             List<AssignmentViewModel> returnList = new List<AssignmentViewModel>();
 
-            var links = (from courseRelation in _db.UserCourses
-                          where courseRelation.UserID == userID
-                          select courseRelation).ToList();
+            var links = (from courseRelations in _db.UserCourses
+                         where courseRelations.UserID == userID
+                         select courseRelations).ToList();
 
             List<Course> courses = new List<Course>();
 

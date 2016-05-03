@@ -7,8 +7,7 @@
 <hr>
 <div class="container">
     <div class="row">
-        <div class="col-sm-10"><h1>Joeuser</h1></div>
-        <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
+        <div class="col-sm-2"><a href="/users" class="pull-left"><img id="profile-picture" title="profile image" class="img-circle img-responsive" src="http://www.lymphnet.org/sites/files/styles/page-image/public/default_images/profile.png?itok=SGKpYivo"></a></div>
     </div>
     <div class="row">
         <div class="col-sm-3">
@@ -56,7 +55,6 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th class="col-md-1">#</th>
                                     <th class="col-md-7">Title</th>
                                     <th class="col-md-4">Course</th>
                                     <th class="col-md-5">Grade</th>
@@ -64,17 +62,14 @@
                                 </tr>
                             </thead>
                             <tbody id="items">
-                                @{int i = 0;}
                                 @foreach(var item in Model)
                                 {
                                     <tr>
-                                        <td>@(i)</td>
                                         <td>@item.Title</td>
                                         <td>@item.CourseTitle</td>
                                         <td>8</td>
                                         <td>Accepted</td>
                                     </tr>
-                                    @(i+=1)
                                 }
                             </tbody>
                         </table>
@@ -182,117 +177,121 @@
 
     </div><!--/col-9-->
 </div><!--/row-->
-<!--
-$.fn.pageMe = function(opts){
-    var $this = this,
-        defaults = {
-            perPage: 7,
-            showPrevNext: false,
-            numbersPerPage: 1,
-            hidePageNumbers: false
-        },
-        settings = $.extend(defaults, opts);
 
-    var listElement = $this;
-    var perPage = settings.perPage;
-    var children = listElement.children();
-    var pager = $('.pagination');
+@section scripts
+{
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        $.fn.pageMe = function (opts) {
+            var $this = this,
+                defaults = {
+                    perPage: 7,
+                    showPrevNext: false,
+                    numbersPerPage: 1,
+                    hidePageNumbers: false
+                },
+                settings = $.extend(defaults, opts);
 
-    if (typeof settings.childSelector!="undefined") {
-        children = listElement.find(settings.childSelector);
-    }
+            var listElement = $this;
+            var perPage = settings.perPage;
+            var children = listElement.children();
+            var pager = $('.pagination');
 
-    if (typeof settings.pagerSelector!="undefined") {
-        pager = $(settings.pagerSelector);
-    }
+            if (typeof settings.childSelector != "undefined") {
+                children = listElement.find(settings.childSelector);
+            }
 
-    var numItems = children.size();
-    var numPages = Math.ceil(numItems/perPage);
+            if (typeof settings.pagerSelector != "undefined") {
+                pager = $(settings.pagerSelector);
+            }
 
-    pager.data("curr",0);
+            var numItems = children.size();
+            var numPages = Math.ceil(numItems / perPage);
 
-    if (settings.showPrevNext){
-        $('<li><a href="#" class="prev_link">«</a></li>').appendTo(pager);
-    }
+            pager.data("curr", 0);
 
-    var curr = 0;
-    while(numPages > curr && (settings.hidePageNumbers==false)){
-        $('<li><a href="#" class="page_link">'+(curr+1)+'</a></li>').appendTo(pager);
-        curr++;
-    }
+            if (settings.showPrevNext) {
+                $('<li><a href="#" class="prev_link">«</a></li>').appendTo(pager);
+            }
 
-    if (settings.numbersPerPage>1) {
-       $('.page_link').hide();
-       $('.page_link').slice(pager.data("curr"), settings.numbersPerPage).show();
-    }
+            var curr = 0;
+            while (numPages > curr && (settings.hidePageNumbers == false)) {
+                $('<li><a href="#" class="page_link">' + (curr + 1) + '</a></li>').appendTo(pager);
+                curr++;
+            }
 
-    if (settings.showPrevNext){
-        $('<li><a href="#" class="next_link">»</a></li>').appendTo(pager);
-    }
+            if (settings.numbersPerPage > 1) {
+                $('.page_link').hide();
+                $('.page_link').slice(pager.data("curr"), settings.numbersPerPage).show();
+            }
 
-    pager.find('.page_link:first').addClass('active');
-    if (numPages<=1) {
-        pager.find('.next_link').hide();
-    }
-  	pager.children().eq(1).addClass("active");
+            if (settings.showPrevNext) {
+                $('<li><a href="#" class="next_link">»</a></li>').appendTo(pager);
+            }
 
-    children.hide();
-    children.slice(0, perPage).show();
+            pager.find('.page_link:first').addClass('active');
+            if (numPages <= 1) {
+                pager.find('.next_link').hide();
+            }
+            pager.children().eq(1).addClass("active");
 
-    pager.find('li .page_link').click(function(){
-        var clickedPage = $(this).html().valueOf()-1;
-        goTo(clickedPage,perPage);
-        return false;
-    });
-    pager.find('li .prev_link').click(function(){
-        previous();
-        return false;
-    });
-    pager.find('li .next_link').click(function(){
-        next();
-        return false;
-    });
+            children.hide();
+            children.slice(0, perPage).show();
 
-    function previous(){
-        var goToPage = parseInt(pager.data("curr")) - 1;
-        goTo(goToPage);
-    }
+            pager.find('li .page_link').click(function () {
+                var clickedPage = $(this).html().valueOf() - 1;
+                goTo(clickedPage, perPage);
+                return false;
+            });
+            pager.find('li .prev_link').click(function () {
+                previous();
+                return false;
+            });
+            pager.find('li .next_link').click(function () {
+                next();
+                return false;
+            });
 
-    function next(){
-        goToPage = parseInt(pager.data("curr")) + 1;
-        goTo(goToPage);
-    }
+            function previous() {
+                var goToPage = parseInt(pager.data("curr")) - 1;
+                goTo(goToPage);
+            }
 
-    function goTo(page){
-        var startAt = page * perPage,
-            endOn = startAt + perPage;
+            function next() {
+                goToPage = parseInt(pager.data("curr")) + 1;
+                goTo(goToPage);
+            }
 
-        children.css('display','none').slice(startAt, endOn).show();
+            function goTo(page) {
+                var startAt = page * perPage,
+                    endOn = startAt + perPage;
 
-        if (page>=1) {
-            pager.find('.prev_link').show();
-        }
-        else {
-            pager.find('.prev_link').hide();
-        }
+                children.css('display', 'none').slice(startAt, endOn).show();
 
-        if (page<(numPages-1)) {
-                               pager.find('.next_link').show();
-                               }
-                               else {
-                               pager.find('.next_link').hide();
-                               }
-                               pager.data("curr",page);
-                               if (settings.numbersPerPage>
-    1) {
-    $('.page_link').hide();
-    $('.page_link').slice(page, settings.numbersPerPage+page).show();
-    }
+                if (page >= 1) {
+                    pager.find('.prev_link').show();
+                }
+                else {
+                    pager.find('.prev_link').hide();
+                }
 
-    pager.children().removeClass("active");
-    pager.children().eq(page+1).addClass("active");
-    }
-    };
+                if (page < (numPages - 1)) {
+                    pager.find('.next_link').show();
+                }
+                else {
+                    pager.find('.next_link').hide();
+                }
+                pager.data("curr", page);
+                if (settings.numbersPerPage > 1) {
+                    $('.page_link').hide();
+                    $('.page_link').slice(page, settings.numbersPerPage + page).show();
+                }
 
-    $('#items').pageMe({pagerSelector:'#myPager',childSelector:'tr',showPrevNext:true,hidePageNumbers:false,perPage:5});
--->
+                pager.children().removeClass("active");
+                pager.children().eq(page + 1).addClass("active");
+            }
+        };
+
+        $('#items').pageMe({ pagerSelector: '#myPager', childSelector: 'tr', showPrevNext: true, hidePageNumbers: false, perPage: 5 });
+    </script>
+}
